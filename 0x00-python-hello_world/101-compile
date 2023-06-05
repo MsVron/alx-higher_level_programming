@@ -1,0 +1,12 @@
+#!/bin/bash
+
+pyfile="${PYFILE}"
+pyfilec="${pyfile}c"
+
+python -m py_compile "${pyfile}"
+
+if [ -f "${pyfilec}" ]; then
+    echo "Python script successfully compiled."
+else
+    echo "Failed to compile Python script."
+fi
