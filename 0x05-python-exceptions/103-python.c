@@ -3,12 +3,13 @@
 #include <string.h>
 
 /**
- *print_python_list - Prints basic information about Python lists
- *@p: Pointer to a PyObject representing a list
+ *print_python_list - Prints information about a Python list object
+ *@p: Pointer to the PyObject representing the list
  */
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t size, i;
+	PyObject * item;
 
 	if (!PyList_Check(p))
 	{
@@ -16,25 +17,29 @@ void print_python_list(PyObject *p)
 		return;
 	}
 
-	size = PyList_Size(p);
+	size = Py_SIZE(p);
+
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %ld\n", size);
 	printf("[*] Allocated = %ld\n", ((PyListObject*) p)->allocated);
 
 	for (i = 0; i < size; i++)
 	{
-		printf("Element %ld: %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
+		item = PyList_GET_ITEM(p, i);
+		printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
 	}
 }
 
 /**
- *print_python_bytes - Prints basic information about Python bytes objects
- *@p: Pointer to a PyObject representing a bytes object
+ *print_python_bytes - Prints information about a Python bytes object
+ *@p: Pointer to the PyObject representing the bytes object
  */
 void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size, i;
-	char *str;
+	char *bytes;
+	char printable;
+	PyObject * repr;
 
 	if (!PyBytes_Check(p))
 	{
@@ -43,33 +48,38 @@ void print_python_bytes(PyObject *p)
 	}
 
 	size = PyBytes_Size(p);
-	printf("[*] Python bytes info\n");
-	printf("[*] Size of the bytes object = %ld\n", size);
-	printf("Bytes object contents: ");
+	bytes = PyBytes_AsString(p);
+
+	printf("[.] Bytes object info\n");
+	printf(" [.] Size: %ld\n", size);
+	printf(" [.] Trying string: %s\n", bytes);
 
 	if (size > 10)
 		size = 10;
 
-	str = PyBytes_AsString(p);
-	printf("'");
+	printf(" [.] First %ld bytes: ", size);
 	for (i = 0; i < size; i++)
 	{
-		if (str[i] >= 0 && str[i] <= 31)
-			printf("\\x%.2x", (unsigned char) str[i]);
-		else
-			printf("%c", str[i]);
+		printable = bytes[i];
+		if (printable < 32 || printable >= 127)
+			printable = '.';
+		printf("%02x%c", bytes[i] &0xff, i < size - 1 ? ' ' : '\n');
 	}
 
-	printf("'\n");
+	repr = PyObject_Repr(p);
+	printf(" [.] Address of PyBytes object: %p\n", (void*) p);
+	printf(" [.] Bytes object printed: %s\n", PyUnicode_AsUTF8(repr));
+	Py_DECREF(repr);
 }
 
 /**
- *print_python_float - Prints basic information about Python float objects
- *@p: Pointer to a PyObject representing a float object
+ *print_python_float - Prints information about a Python float object
+ *@p: Pointer to the PyObject representing the float object
  */
 void print_python_float(PyObject *p)
 {
 	double value;
+	char *str_value;
 
 	if (!PyFloat_Check(p))
 	{
@@ -77,7 +87,11 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	printf("[*] Python float info\n");
 	value = PyFloat_AsDouble(p);
-	printf("Value: %f\n", value);
+	str_value = PyOS_double_to_string(value, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+
+	printf("[.] Float object info\n");
+	printf(" [.] Value: %s\n", str_value);
+
+	PyMem_Free(str_value);
 }
