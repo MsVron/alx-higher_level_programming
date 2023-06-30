@@ -12,7 +12,8 @@ class Node:
         next_node (Node): The reference to the next node.
 
     Methods:
-        __init__(self, data, next_node=None): Initializes a Node object with a given data value and next node reference.
+        __init__(self, data, next_node=None): Initializes a Node object
+        with a given data value and next node reference.
     """
 
     def __init__(self, data, next_node=None):
@@ -90,7 +91,8 @@ class SinglyLinkedList:
     Methods:
         __init__(self): Initializes a SinglyLinkedList object with an empty list.
         __str__(self): Returns a string representation of the linked list.
-        sorted_insert(self, value): Inserts a node with a given value in a sorted manner into the linked list.
+        sorted_insert(self, value): Inserts a node with a given value in a sorted
+        manner into the linked list.
     """
 
     def __init__(self):
@@ -122,8 +124,10 @@ class SinglyLinkedList:
 
         Notes:
             - If the list is empty, the new node becomes the head.
-            - If the value is less than the head's data, the new node becomes the new head.
-            - If the value is greater than the head's data, the new node is inserted at the appropriate position.
+            - If the value is less than the head's data, the new node
+            becomes the new head.
+            - If the value is greater than the head's data, the new node
+            is inserted at the appropriate position.
 
         """
         new_node = Node(value)
