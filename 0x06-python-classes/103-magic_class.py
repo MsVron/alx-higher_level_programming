@@ -12,6 +12,8 @@ This module provides a MagicClass for working with circles.
 """
 Define MagicClass
 """
+
+
 class MagicClass:
     """
     A class representing a magic circle.
