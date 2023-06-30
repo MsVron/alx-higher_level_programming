@@ -20,13 +20,17 @@ class Square:
         __ne__(self, other):
             Checks if two squares are not equal in area.
         __gt__(self, other):
-            Checks if the area of the current square is greater than the area of another square.
+            Checks if the area of the current square is greater
+            than the area of another square.
         __ge__(self, other):
-            Checks if the area of the current square is greater than or equal to the area of another square.
+            Checks if the area of the current square is greater
+            than or equal to the area of another square.
         __lt__(self, other):
-            Checks if the area of the current square is less than the area of another square.
+            Checks if the area of the current square is less
+            than the area of another square.
         __le__(self, other):
-            Checks if the area of the current square is less than or equal to the area of another square.
+            Checks if the area of the current square is less
+            than or equal to the area of another square.
 
     """
 
@@ -110,13 +114,15 @@ class Square:
 
     def __gt__(self, other):
         """
-        Check if the area of the current square is greater than the area of another square.
+        Check if the area of the current square is greater
+        than the area of another square.
 
         Args:
             other (Square): The other square to compare.
 
         Returns:
-            bool: True if the current square is greater than the other square in area, False otherwise.
+            bool: True if the current square is greater than
+            the other square in area, False otherwise.
         """
         if isinstance(other, Square):
             return self.area() > other.area()
@@ -124,13 +130,15 @@ class Square:
 
     def __ge__(self, other):
         """
-        Check if the area of the current square is greater than or equal to the area of another square.
+        Check if the area of the current square is greater
+        than or equal to the area of another square.
 
         Args:
             other (Square): The other square to compare.
 
         Returns:
-            bool: True if the current square is greater than or equal to the other square in area, False otherwise.
+            bool: True if the current square is greater than or equal
+            to the other square in area, False otherwise.
         """
         if isinstance(other, Square):
             return self.area() >= other.area()
@@ -138,13 +146,15 @@ class Square:
 
     def __lt__(self, other):
         """
-        Check if the area of the current square is less than the area of another square.
+        Check if the area of the current square
+        is less than the area of another square.
 
         Args:
             other (Square): The other square to compare.
 
         Returns:
-            bool: True if the current square is less than the other square in area, False otherwise.
+            bool: True if the current square is less than the other
+            square in area, False otherwise.
         """
         if isinstance(other, Square):
             return self.area() < other.area()
@@ -152,13 +162,15 @@ class Square:
 
     def __le__(self, other):
         """
-        Check if the area of the current square is less than or equal to the area of another square.
+        Check if the area of the current square is less
+        than or equal to the area of another square.
 
         Args:
             other (Square): The other square to compare.
 
         Returns:
-            bool: True if the current square is less than or equal to the other square in area, False otherwise.
+            bool: True if the current square is less than or equal
+            to the other square in area, False otherwise.
         """
         if isinstance(other, Square):
             return self.area() <= other.area()
