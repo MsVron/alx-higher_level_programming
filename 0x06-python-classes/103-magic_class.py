@@ -20,7 +20,8 @@ class MagicClass:
         __radius (int or float): The radius of the circle.
 
     Methods:
-        __init__(radius): Initialize a MagicClass instance with the given radius.
+        __init__(radius): Initialize a MagicClass instance with
+        the given radius.
         area(): Calculate the area of the circle.
         circumference(): Calculate the circumference of the circle.
     """
