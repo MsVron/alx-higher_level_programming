@@ -12,8 +12,9 @@ class Square:
         position (tuple): The position of the square.
 
     Methods:
-        __init__(self, size=0, position=(0, 0)): Initializes a Square object with a given size and position.
-        area(self): Calculates the area of the square.
+        __init__(self, size=0, position=(0, 0)):
+            Initializes a Square object with a given size and position.
+        __str__(self): Returns a string representation of the square.
         my_print(self): Prints the square.
 
     """
@@ -27,7 +28,8 @@ class Square:
             position (tuple): The position of the square (default is (0, 0)).
 
         Raises:
-            TypeError: If size is not an integer or position is not a tuple of 2 positive integers.
+            TypeError: If size is not an integer or position is not a tuple
+                       of 2 positive integers.
             ValueError: If size is less than 0.
         """
         self.size = size
@@ -88,23 +90,24 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
-    def area(self):
+    def __str__(self):
         """
-        Calculates the area of the square.
+        Returns a string representation of the square.
 
         Returns:
-            int: The area of the square.
+            str: A string representation of the square.
         """
-        return self.size ** 2
+        if self.size == 0:
+            return ""
+        result = []
+        for _ in range(self.position[1]):
+            result.append("\n")
+        for _ in range(self.size):
+            result.append(" " * self.position[0] + "#" * self.size + "\n")
+        return "".join(result)
 
     def my_print(self):
         """
         Prints the square.
         """
-        if self.size == 0:
-            print()
-        else:
-            for _ in range(self.position[1]):
-                print()
-            for _ in range(self.size):
-                print(" " * self.position[0] + "#" * self.size)
+        print(self)
