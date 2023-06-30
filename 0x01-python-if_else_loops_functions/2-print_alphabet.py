@@ -1,4 +1,8 @@
 #!/usr/bin/python3
 
+alphabet = ""
+
 for char_code in range(ord('a'), ord('z')+1):
-    print(chr(char_code), end=")
+    alphabet += chr(char_code)
+
+print("{}{}".format(alphabet, ''), end='')
