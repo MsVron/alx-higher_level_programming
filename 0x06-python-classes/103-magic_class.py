@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 
+"""
+This module provides a MagicClass for working with circles.
+"""
 import math
+
+"""Define a class MagicClass."""
 
 
 class MagicClass:
