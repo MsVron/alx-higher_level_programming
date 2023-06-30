@@ -104,10 +104,10 @@ class Square:
             result.append("\n")
         for _ in range(self.size):
             result.append(" " * self.position[0] + "#" * self.size + "\n")
-        return "".join(result)
+        return "".join(result).rstrip()
 
     def my_print(self):
         """
         Prints the square.
         """
-        print(self)
+        print(str(self).replace(" ", "_"))
