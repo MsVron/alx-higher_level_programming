@@ -89,10 +89,12 @@ class SinglyLinkedList:
         head (Node): The reference to the head node.
 
     Methods:
-        __init__(self): Initializes a SinglyLinkedList object with an empty list.
-        __str__(self): Returns a string representation of the linked list.
-        sorted_insert(self, value): Inserts a node with a given value in a sorted
-        manner into the linked list.
+        __init__(self): Initializes a SinglyLinkedList object
+        with an empty list.
+        __str__(self): Returns a string representation
+        of the linked list.
+        sorted_insert(self, value): Inserts a node with
+        a given value in a sorted manner into the linked list.
     """
 
     def __init__(self):
@@ -117,7 +119,8 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """
-        Inserts a node with a given value in a sorted manner into the linked list.
+        Inserts a node with a given value in a sorted
+        manner into the linked list.
 
         Args:
             value (int): The value to be inserted.
