@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 
+"""
+Import the math module for mathematical functions and constants
+"""
 import math
 
 """
 This module provides a MagicClass for working with circles.
 """
 
+"""
+Define MagicClass
+"""
 class MagicClass:
     """
     A class representing a magic circle.
