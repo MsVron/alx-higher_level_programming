@@ -12,8 +12,7 @@ class Square:
         position (tuple): The position of the square.
 
     Methods:
-        __init__(self, size=0, position=(0, 0)):
-            Initializes a Square object with a given size and position.
+        __init__(self, size=0, position=(0, 0)): Initializes a Square object with a given size and position.
         area(self): Calculates the area of the square.
         my_print(self): Prints the square.
 
@@ -28,8 +27,7 @@ class Square:
             position (tuple): The position of the square (default is (0, 0)).
 
         Raises:
-            TypeError: If size is not an integer or position is not a tuple
-                       of 2 positive integers.
+            TypeError: If size is not an integer or position is not a tuple of 2 positive integers.
             ValueError: If size is less than 0.
         """
         self.size = size
