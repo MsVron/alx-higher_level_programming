@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from calculator_1 import add, sub, mul, div
-"""Print the sum, difference, multiple and quotient of 10 and 5."""
+
 if __name__ == "__main__":
     a = 10
     b = 5
