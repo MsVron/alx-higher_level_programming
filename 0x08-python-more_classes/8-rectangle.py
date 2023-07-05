@@ -98,7 +98,8 @@ class Rectangle:
         return rectangle_str.rstrip()
 
     def __repr__(self):
-        """Return a string representation that can be used to recreate the object.
+        """Return a string representation
+        that can be used to recreate the object.
 
         Returns:
             str: A string representation of the rectangle.
@@ -112,7 +113,8 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Compare two rectangles and return the one with the bigger or equal area.
+        """Compare two rectangles
+        and return the one with the bigger or equal area.
 
         Args:
             rect_1 (Rectangle): The first rectangle to compare.
@@ -124,8 +126,14 @@ class Rectangle:
         Raises:
             TypeError: If rect_1 is not an instance of Rectangle.
             TypeError: If rect_2 is not an instance of Rectangle.
-            rect_1 must be an instance of Rectangle, otherwise raise a TypeError exception with the message rect_1 must be an instance of Rectangle
-            rect_2 must be an instance of Rectangle, otherwise raise a TypeError exception with the message rect_2 must be an instance of Rectangle
+            
+            rect_1 must be an instance of Rectangle,
+            otherwise raise a TypeError exception
+            with the message rect_1 must be an instance of Rectangle
+            
+            rect_2 must be an instance of Rectangle,
+            otherwise raise a TypeError exception
+            with the message rect_2 must be an instance of Rectangle
         """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
