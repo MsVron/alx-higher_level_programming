@@ -88,7 +88,8 @@ class Rectangle:
         Returns a dictionary representation of the rectangle instance.
 
         Returns:
-            dict: A dictionary containing the width and height of the rectangle.
+            dict: A dictionary containing the width
+            and height of the rectangle.
         """
         return {'width': self.width, 'height': self.height}
 
