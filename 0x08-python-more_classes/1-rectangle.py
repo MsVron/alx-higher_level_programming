@@ -22,8 +22,6 @@ class Rectangle:
             width (int, optional): The width of the rectangle (default: 0).
             height (int, optional): The height of the rectangle (default: 0).
         """
-        self._width = 0
-        self._height = 0
         self.width = width
         self.height = height
 
