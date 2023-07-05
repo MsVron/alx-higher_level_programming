@@ -126,11 +126,11 @@ class Rectangle:
         Raises:
             TypeError: If rect_1 is not an instance of Rectangle.
             TypeError: If rect_2 is not an instance of Rectangle.
-            
+
             rect_1 must be an instance of Rectangle,
             otherwise raise a TypeError exception
             with the message rect_1 must be an instance of Rectangle
-            
+
             rect_2 must be an instance of Rectangle,
             otherwise raise a TypeError exception
             with the message rect_2 must be an instance of Rectangle
