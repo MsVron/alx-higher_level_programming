@@ -120,7 +120,8 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string representation that can be used to recreate the object.
+        Returns a string representation that can
+        be used to recreate the object.
 
         Returns:
             str: A string representation of the object.
