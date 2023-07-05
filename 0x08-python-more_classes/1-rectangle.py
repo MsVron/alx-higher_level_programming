@@ -82,17 +82,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self._height = value
-
-    def dict(self):
-        """
-        Returns a dictionary representation of the rectangle instance.
-
-        Returns:
-            dict: A dictionary containing the width
-            and height of the rectangle.
-        """
-        return {'width': self.width, 'height': self.height}
-
-
-myrectangle = Rectangle(2, 4)
-print(sorted(myrectangle.dict().items()))
