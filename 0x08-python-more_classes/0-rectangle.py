@@ -4,6 +4,7 @@
 This is the "Rectangle"  module.
 """
 
+
 class Rectangle:
     """
     This class provides a basic representation of a rectangle
