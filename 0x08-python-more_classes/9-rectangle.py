@@ -5,7 +5,7 @@ This is the "Rectangle"  module.
 """
 
 
-class Rectangle:class Rectangle:
+class Rectangle:
     """A class representing a rectangle."""
 
     number_of_instances = 0
@@ -150,4 +150,3 @@ class Rectangle:class Rectangle:
             Rectangle: A new Rectangle instance with equal width and height.
         """
         return cls(size, size)
-
