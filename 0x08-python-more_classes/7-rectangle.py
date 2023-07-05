@@ -98,7 +98,8 @@ class Rectangle:
         return rectangle_str.rstrip()
 
     def __repr__(self):
-        """Return a string representation that can be used to recreate the object.
+        """Return a string representation
+        that can be used to recreate the object.
 
         Returns:
             str: A string representation of the rectangle.
