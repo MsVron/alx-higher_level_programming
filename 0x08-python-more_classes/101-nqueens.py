@@ -79,9 +79,11 @@ class NQueens:
     def add_solution(self):
         """Add the current board configuration as a solution."""
         solution = []
-        for row in self.board:
-            queen_col = row.index(1)
-            solution.append([row.index(1), queen_col])
+        for row in range(self.n):
+            for col in range(self.n):
+                if self.board[row][col] == 1:
+                    solution.append([row, col])
+                    break
         self.solutions.append(solution)
 
     def print_solutions(self):
