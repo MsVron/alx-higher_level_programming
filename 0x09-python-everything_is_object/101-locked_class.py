@@ -2,6 +2,8 @@
 """
 Module class LockedClass
 """
+
+
 class LockedClass:
     """
     Class that's locked unless you're mister or madam first_name
