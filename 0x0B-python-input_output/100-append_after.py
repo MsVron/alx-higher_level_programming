@@ -1,67 +1,64 @@
 #!/usr/bin/python3
 
 """
-sys module import
+Appends a line of text after each line containing
+a specific string in a file.
 """
 
 
-import sys
-
-"""
-Print the computed statistics.
-"""
-
-
-def print_statistics(total_size, status_counts):
+def append_after(filename="", search_string="", new_string=""):
     """
     Args:
-        total_size (int): Total file size.
-        status_counts (dict): Dictionary with status code counts.
+        filename (str): The name of the file to modify.
+        search_string (str): The string to search for in each line.
+        new_string (str): The string to append after each line
+        containing the search string.
+
+    Raises:
+        None
 
     Returns:
         None
     """
-    print("Total file size: {}".format(total_size))
-    for status_code in sorted(status_counts.keys()):
-        if status_counts[status_code] > 0:
-            print("{}: {}".format(status_code, status_counts[status_code]))
-
+    tmp_fn = 'temp.txt'  # Name of the temporary file
+    
+    # Open the input file in read mode and create a temporary output file
+    with open(filename, 'r') as input_file, open(tmp_fn, 'w') as output_file:
+        # Iterate through each line in the input file
+        for line in input_file:
+            # Write the current line to the output file
+            output_file.write(line)
+            
+            # Check if the search string is present in the current line
+            if search_string in line:
+                # Write the new string after the line
+                # containing the search string
+                output_file.write(new_string + '\n')
+    
+    # Replace the input file with the temporary output file
+    with open(tmp_fn, 'r') as temp_file, open(filename, 'w') as input_file:
+        # Copy the contents of the temporary file back to the input file
+        for line in temp_file:
+            input_file.write(line)
+    
+    # Remove the temporary file
+    remove_file(tmp_fn)
 
 """
-Parse a line and extract file size and status code.
+Removes a file.
 """
 
 
-def parse_line(line):
+def remove_file(filename):
     """
     Args:
-        line (str): Input line to parse.
+        filename (str): The name of the file to remove.
+
+    Raises:
+        None
 
     Returns:
-        tuple: Tuple containing file size and status code.
+        None
     """
-    elements = line.split()
-    file_size = int(elements[-1])
-    status_code = elements[-2]
-    return file_size, status_code
-
-# Initialize variables
-
-
-total_size = 0
-status_counts = {200: 0, 301: 0, 400: 0, 401: 0,
-                 403: 0, 404: 0, 405: 0, 500: 0}
-line_count = 0
-
-try:
-    for line in sys.stdin:
-        file_size, status_code = parse_line(line)
-        total_size += file_size
-        status_counts[int(status_code)] += 1
-
-        line_count += 1
-        if line_count % 10 == 0:
-            print_statistics(total_size, status_counts)
-
-except KeyboardInterrupt:
-    print_statistics(total_size, status_counts)
+    with open(filename, 'w') as file:
+        file.write('')
