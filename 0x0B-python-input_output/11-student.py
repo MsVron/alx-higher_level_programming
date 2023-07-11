@@ -45,7 +45,8 @@ class Student:
         return json_dict
 
     """
-    Replace all attributes of the Student instance based on a provided dictionary.
+    Replace all attributes of the Student instance based
+    on a provided dictionary.
 
     """
     def reload_from_json(self, json):
