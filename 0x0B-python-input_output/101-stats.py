@@ -16,7 +16,8 @@ def print_statistics(total_file_size, status_code_counts):
     """
     Args:
         total_file_size (int): The total file size.
-        status_code_counts (dict): A dictionary containing counts of status codes.
+        status_code_counts (dict): A dictionary
+        containing counts of status codes.
 
     Raises:
         None
