@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+
+"""
+This script reads input log lines from stdin, computes metrics, and prints statistics.
+
+The expected input format is as follows:
+<IP Address> - [<Timestamp>] "<HTTP Method> <URL> <HTTP Version>" <Status Code> <File Size>
+
+The script calculates the total file size and counts the occurrences of each status code.
+
+Example usage: ./101-generator.py | ./101-stats.py
+"""
+
+
 """
 import sys module
 """
@@ -23,9 +36,6 @@ def print_statistics(total_file_size, status_code_counts):
         total_file_size (int): The total file size.
         status_code_counts (dict): A dictionary containing counts of status codes.
 
-    Raises:
-        None
-
     Returns:
         None
     """
@@ -40,12 +50,6 @@ Reads input line by line from stdin, computes metrics, and prints statistics.
 """
 def process_input():
     """
-    Args:
-        None
-
-    Raises:
-        None
-
     Returns:
         None
     """
@@ -55,15 +59,12 @@ def process_input():
     try:
         line_count = 0
 
-        # Read input line by line from stdin
         for line in sys.stdin:
-            # Extract file size from the line using regular expression
             match = re.match(r".*\s(\d+)$", line)
             if match:
                 file_size = int(match.group(1))
                 total_file_size += file_size
 
-            # Extract status code from the line using regular expression
             match = re.match(r".*\".*?\" (\d+)", line)
             if match:
                 status_code = match.group(1)
@@ -74,14 +75,14 @@ def process_input():
 
             line_count += 1
 
-            # Print statistics every 10 lines
             if line_count % 10 == 0:
                 print_statistics(total_file_size, status_code_counts)
                 print()
 
     except KeyboardInterrupt:
-        # Handle keyboard interruption (CTRL + C)
         print_statistics(total_file_size, status_code_counts)
+        sys.exit(0)
+
 
 if __name__ == '__main__':
     process_input()
