@@ -21,7 +21,8 @@ def print_statistics(total_file_size, status_code_counts):
     """
     Args:
         total_file_size (int): The total file size.
-        status_code_counts (dict): A dictionary containing counts of status codes.
+        status_code_counts (dict): A dictionary
+        containing counts of status codes.
 
     Raises:
         None
@@ -58,13 +59,13 @@ def process_input():
         # Read input line by line from stdin
         for line in sys.stdin:
             # Extract file size from the line using regular expression
-            match = re.match(r".* (\d+)$", line)
+            match = re.match(r".*HTTP/1\.1\" \d+ (\d+)$", line)
             if match:
                 file_size = int(match.group(1))
                 total_file_size += file_size
 
             # Extract status code from the line using regular expression
-            match = re.match(r".*\" \d+ (\d+)$", line)
+            match = re.match(r".*HTTP/1\.1\" (\d+)", line)
             if match:
                 status_code = match.group(1)
                 if status_code in status_code_counts:
