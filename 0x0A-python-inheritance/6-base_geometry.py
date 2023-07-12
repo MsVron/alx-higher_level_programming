@@ -10,7 +10,6 @@ class BaseGeometry:
     Computes the area of the geometry.
     """
 
-
     def area(self):
         """
         Raises:
