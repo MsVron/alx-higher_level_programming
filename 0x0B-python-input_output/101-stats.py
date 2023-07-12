@@ -6,6 +6,11 @@ import sys module
 
 import sys
 
+"""
+import re module
+"""
+
+import re
 
 """
 Prints the computed statistics.
@@ -16,8 +21,7 @@ def print_statistics(total_file_size, status_code_counts):
     """
     Args:
         total_file_size (int): The total file size.
-        status_code_counts (dict): A dictionary
-        containing counts of status codes.
+        status_code_counts (dict): A dictionary containing counts of status codes.
 
     Raises:
         None
@@ -34,8 +38,6 @@ def print_statistics(total_file_size, status_code_counts):
 """
 Reads input line by line from stdin, computes metrics, and prints statistics.
 """
-
-
 def process_input():
     """
     Args:
@@ -55,23 +57,20 @@ def process_input():
 
         # Read input line by line from stdin
         for line in sys.stdin:
-            # Remove leading/trailing whitespace and split the line by spaces
-            line_parts = line.strip().split()
+            # Extract file size from the line using regular expression
+            match = re.match(r".* (\d+)$", line)
+            if match:
+                file_size = int(match.group(1))
+                total_file_size += file_size
 
-            # Ignore lines that do not have the expected number of parts
-            if len(line_parts) != 9:
-                continue
-
-            # Extract file size from line_parts and update total file size
-            file_size = int(line_parts[-1])
-            total_file_size += file_size
-
-            # Extract status code from line_parts and update status code counts
-            status_code = line_parts[-3]
-            if status_code in status_code_counts:
-                status_code_counts[status_code] += 1
-            else:
-                status_code_counts[status_code] = 1
+            # Extract status code from the line using regular expression
+            match = re.match(r".*\" \d+ (\d+)$", line)
+            if match:
+                status_code = match.group(1)
+                if status_code in status_code_counts:
+                    status_code_counts[status_code] += 1
+                else:
+                    status_code_counts[status_code] = 1
 
             line_count += 1
 
@@ -83,7 +82,6 @@ def process_input():
     except KeyboardInterrupt:
         # Handle keyboard interruption (CTRL + C)
         print_statistics(total_file_size, status_code_counts)
-
 
 if __name__ == '__main__':
     process_input()
