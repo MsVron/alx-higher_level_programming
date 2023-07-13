@@ -20,7 +20,7 @@ class BaseGeometry:
     """
     Validates the given value as an integer.
     """
-    
+
     def integer_validator(self, name, value):
         """
         Args:
