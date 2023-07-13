@@ -13,6 +13,7 @@ Create an instance of BaseGeometry:
 Test present: area()
     >>> bg.area()
     Traceback (most recent call last):
+      File "<stdin>", line 2, in <module>
     Exception: area() is not implemented
 
 Test present: integer_validator()
