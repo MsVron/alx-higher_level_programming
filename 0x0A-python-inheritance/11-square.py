@@ -22,13 +22,14 @@ Initializes a Square instance with the given size.
             TypeError: If size is not an integer.
             ValueError: If size is less than or equal to 0.
         """
-        super().__init__(size, size)
+        self.__size = None
+        self.integer_validator("size", size)
         self.__size = size
-
+        super().__init__(size, size)
     """
     Returns a string representation of the square.
     """
-
+    
     def __str__(self):
         """
         Returns:
