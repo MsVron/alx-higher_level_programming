@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 
 """
-A class representing a rectangle.
+A class representing a rectangle with BaseGeometry
 """
 
 
 class Rectangle(BaseGeometry):
+
     """
     Initializes a Rectangle instance with the given width and height.
     """
