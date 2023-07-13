@@ -28,7 +28,7 @@ Initializes a Square instance with the given size.
     """
     Returns a string representation of the square.
     """
-    
+
     def __str__(self):
         """
         Returns:
