@@ -1,18 +1,6 @@
 #!/usr/bin/python3
 
 """
-This script reads input log lines from stdin, computes metrics, and prints statistics.
-
-The expected input format is as follows:
-<IP Address> - [<Timestamp>] "<HTTP Method> <URL> <HTTP Version>" <Status Code> <File Size>
-
-The script calculates the total file size and counts the occurrences of each status code.
-
-Example usage: ./101-generator.py | ./101-stats.py
-"""
-
-
-"""
 import sys module
 """
 
@@ -25,6 +13,21 @@ import re module
 
 import re
 
+
+"""
+This script reads input log lines from stdin,
+computes metrics, and prints statistics.
+
+The expected input format is as follows:
+<IP Address> - [<Timestamp>] "<HTTP Method> <URL> <HTTP Version>"
+<Status Code> <File Size>
+
+The script calculates the total file size and counts
+the occurrences of each status code.
+
+Example usage: ./101-generator.py | ./101-stats.py
+"""
+
 """
 Prints the computed statistics.
 """
@@ -34,7 +37,8 @@ def print_statistics(total_file_size, status_code_counts):
     """
     Args:
         total_file_size (int): The total file size.
-        status_code_counts (dict): A dictionary containing counts of status codes.
+        status_code_counts (dict): A dictionary containing
+        counts of status codes.
 
     Returns:
         None
@@ -48,6 +52,8 @@ def print_statistics(total_file_size, status_code_counts):
 """
 Reads input line by line from stdin, computes metrics, and prints statistics.
 """
+
+
 def process_input():
     """
     Returns:
