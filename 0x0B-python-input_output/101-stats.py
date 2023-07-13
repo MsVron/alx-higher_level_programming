@@ -1,16 +1,6 @@
 #!/usr/bin/python3
 
-"""
-import sys module
-"""
-
-
 import sys
-
-"""
-import re module
-"""
-
 import re
 
 
