@@ -5,21 +5,22 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """
     Rectangle class that inherits from Base.
-    
+
     Attributes:
         width (int): width of the rectangle
         height (int): height of the rectangle
         x (int, optional): x coordinate of the rectangle. Defaults to 0.
         y (int, optional): y coordinate of the rectangle. Defaults to 0.
-        id (int, optional): id of the rectangle. If not provided, an id is 
+        id (int, optional): id of the rectangle. If not provided, an id is
             automatically assigned using the logic from the Base class.
     """
-    
+
     """Initialize a new Rectangle instance."""
-    
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Args:
@@ -27,7 +28,7 @@ class Rectangle(Base):
             height (int): height of the rectangle
             x (int, optional): x coordinate of the rectangle. Defaults to 0.
             y (int, optional): y coordinate of the rectangle. Defaults to 0.
-            id (int, optional): id of the rectangle. If not provided, an id is 
+            id (int, optional): id of the rectangle. If not provided, an id is
                 automatically assigned using the logic from the Base class.
         """
         super().__init__(id)
@@ -62,7 +63,7 @@ class Rectangle(Base):
         self.__height = height
 
         """Get the x coordinate of the rectangle."""
-        
+
     @property
     def x(self):
         return self.__x
