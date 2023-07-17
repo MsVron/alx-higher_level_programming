@@ -5,6 +5,9 @@
 
 from models.base import Base
 
+"""Class representing a Rectangle."""
+
+
 class Rectangle(Base):
 
     """
