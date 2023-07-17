@@ -116,11 +116,12 @@ class Rectangle(Base):
                         self.width, self.height))
 
     def update(self, *args):
-        """
-        Updates the attributes of the Rectangle instance in a certain order.
-        The order is: id, width, height, x, y.
-        """
-        attr_order = ['id', 'width', 'height', 'x', 'y']
-        for idx, arg in enumerate(args):
-            if idx < len(attr_order):
-                setattr(self, attr_order[idx], arg)
+            """
+            Updates the attributes of the Rectangle instance
+            in a certain order.
+            The order is: id, width, height, x, y.
+            """
+            attr_order = ['id', 'width', 'height', 'x', 'y']
+            for idx, arg in enumerate(args):
+                if idx < len(attr_order):
+                    setattr(self, attr_order[idx], arg)
