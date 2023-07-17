@@ -18,7 +18,7 @@ class Rectangle(Base):
         id (int, optional): id of the rectangle. If not provided, an id is
             automatically assigned using the logic from the Base class.
     """
-    
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initialize a new Rectangle instance.
@@ -92,7 +92,7 @@ class Rectangle(Base):
         elif y < 0:
             raise ValueError("y must be >= 0")
         self.__y = y
-    
+
     def area(self):
         """Calculate and return the area of the rectangle."""
         return self.width * self.height
@@ -106,6 +106,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """
-        Return a string representation of the rectangle in the specified format.
+        Return a string representation of the rectangle
+        in the specified format.
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        return ("[Rectangle] ({}) {}/{} - {}/{}"
+            .format(self.id, self.x, self.y, self.width, self.height))
