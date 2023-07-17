@@ -18,7 +18,7 @@ class Rectangle(Base):
         id (int, optional): id of the rectangle. If not provided, an id is
             automatically assigned using the logic from the Base class.
     """
-    
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initialize a new Rectangle instance.
