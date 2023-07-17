@@ -5,26 +5,30 @@
 
 from models.base import Base
 
-"""Class representing a Rectangle."""
-
-
 class Rectangle(Base):
-
     """
-    Initialize a Rectangle instance.
+    Rectangle class that inherits from Base.
+    
+    Attributes:
+        width (int): width of the rectangle
+        height (int): height of the rectangle
+        x (int, optional): x coordinate of the rectangle. Defaults to 0.
+        y (int, optional): y coordinate of the rectangle. Defaults to 0.
+        id (int, optional): id of the rectangle. If not provided, an id is 
+            automatically assigned using the logic from the Base class.
     """
+    
+    """Initialize a new Rectangle instance."""
+    
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-            x (int, optional): The x-coordinate of the rectangle's position.
-                            Defaults to 0.
-            y (int, optional): The y-coordinate of the rectangle's position.
-                            Defaults to 0.
-            id (int, optional): The id of the rectangle. If not provided,
-                            it will be assigned by the Base class.
-
+            width (int): width of the rectangle
+            height (int): height of the rectangle
+            x (int, optional): x coordinate of the rectangle. Defaults to 0.
+            y (int, optional): y coordinate of the rectangle. Defaults to 0.
+            id (int, optional): id of the rectangle. If not provided, an id is 
+                automatically assigned using the logic from the Base class.
         """
         super().__init__(id)
         self.width = width
@@ -32,42 +36,51 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    """Get the width of the rectangle."""
+
     @property
     def width(self):
-        """Get the width of the rectangle."""
         return self.__width
 
+    """Set the width of the rectangle."""
+
     @width.setter
-    def width(self, value):
-        """Set the width of the rectangle."""
-        self.__width = value
+    def width(self, width):
+
+        self.__width = width
+
+    """Get the height of the rectangle."""
 
     @property
     def height(self):
-        """Get the height of the rectangle."""
         return self.__height
 
-    @height.setter
-    def height(self, value):
-        """Set the height of the rectangle."""
-        self.__height = value
+    """Set the height of the rectangle."""
 
+    @height.setter
+    def height(self, height):
+        self.__height = height
+
+        """Get the x coordinate of the rectangle."""
+        
     @property
     def x(self):
-        """Get the x-coordinate of the rectangle's position."""
         return self.__x
 
+    """Set the x coordinate of the rectangle."""
+
     @x.setter
-    def x(self, value):
-        """Set the x-coordinate of the rectangle's position."""
-        self.__x = value
+    def x(self, x):
+        self.__x = x
+
+    """Get the y coordinate of the rectangle."""
 
     @property
     def y(self):
-        """Get the y-coordinate of the rectangle's position."""
         return self.__y
 
+    """Set the y coordinate of the rectangle."""
+
     @y.setter
-    def y(self, value):
-        """Set the y-coordinate of the rectangle's position."""
-        self.__y = value
+    def y(self, y):
+        self.__y = y
