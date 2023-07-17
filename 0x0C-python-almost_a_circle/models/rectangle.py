@@ -39,75 +39,77 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Get the width of the rectangle."""
+        """
+        Getter for width.
+        """
         return self.__width
 
     @width.setter
     def width(self, width):
-        """Set the width of the rectangle."""
-        if not isinstance(width, int):
-            raise TypeError("width must be an integer")
-        elif width <= 0:
-            raise ValueError("width must be > 0")
+        """
+        Setter for width.
+        """
         self.__width = width
 
     @property
     def height(self):
-        """Get the height of the rectangle."""
+        """
+        Getter for height.
+        """
         return self.__height
 
     @height.setter
     def height(self, height):
-        """Set the height of the rectangle."""
-        if not isinstance(height, int):
-            raise TypeError("height must be an integer")
-        elif height <= 0:
-            raise ValueError("height must be > 0")
+        """
+        Setter for height.
+        """
         self.__height = height
 
     @property
     def x(self):
-        """Get the x coordinate of the rectangle."""
+        """
+        Getter for x.
+        """
         return self.__x
 
     @x.setter
     def x(self, x):
-        """Set the x coordinate of the rectangle."""
-        if not isinstance(x, int):
-            raise TypeError("x must be an integer")
-        elif x < 0:
-            raise ValueError("x must be >= 0")
+        """
+        Setter for x.
+        """
         self.__x = x
 
     @property
     def y(self):
-        """Get the y coordinate of the rectangle."""
+        """
+        Getter for y.
+        """
         return self.__y
 
     @y.setter
     def y(self, y):
-        """Set the y coordinate of the rectangle."""
-        if not isinstance(y, int):
-            raise TypeError("y must be an integer")
-        elif y < 0:
-            raise ValueError("y must be >= 0")
+        """
+        Setter for y.
+        """
         self.__y = y
 
     def area(self):
-        """Calculate and return the area of the rectangle."""
-        return self.width * self.height
+        """
+        Returns the area of the rectangle.
+        """
+        return self.__width * self.__height
 
     def display(self):
         """
-        Print a visual representation of the rectangle using "#" character.
+        Prints in stdout the Rectangle instance with the character '#'.
         """
-        for i in range(self.height):
-            print("#" * self.width)
+        for i in range(self.__height):
+            print("#" * self.__width)
 
     def __str__(self):
         """
-        Return a string representation of the rectangle in the specified format.
+        Returns the print() and str() representation of the Rectangle.
         """
         return ("[Rectangle] ({}) {}/{} - {}/{}"
-            .format(self.id, self.x, self.y,
-                    self.width, self.height))
+                .format(self.id, self.x, self.y,
+                        self.width, self.height))
