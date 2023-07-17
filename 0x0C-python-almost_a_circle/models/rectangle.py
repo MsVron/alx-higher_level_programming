@@ -109,5 +109,5 @@ class Rectangle(Base):
         Return a string representation of the rectangle in the specified format.
         """
         return ("[Rectangle] ({}) {}/{} - {}/{}"
-                .format(self.id, self.x, self.y,
+            .format(self.id, self.x, self.y,
                     self.width, self.height))
