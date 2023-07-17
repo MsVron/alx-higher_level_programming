@@ -18,70 +18,65 @@ class Rectangle(Base):
         id (int, optional): id of the rectangle. If not provided, an id is
             automatically assigned using the logic from the Base class.
     """
-
-    """Initialize a new Rectangle instance."""
-
     def __init__(self, width, height, x=0, y=0, id=None):
-        """
-        Args:
-            width (int): width of the rectangle
-            height (int): height of the rectangle
-            x (int, optional): x coordinate of the rectangle. Defaults to 0.
-            y (int, optional): y coordinate of the rectangle. Defaults to 0.
-            id (int, optional): id of the rectangle. If not provided, an id is
-                automatically assigned using the logic from the Base class.
-        """
         super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
 
-    """Get the width of the rectangle."""
-
     @property
     def width(self):
+        """Get the width of the rectangle."""
         return self.__width
-
-    """Set the width of the rectangle."""
 
     @width.setter
     def width(self, width):
-
+        """Set the width of the rectangle."""
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        elif width <= 0:
+            raise ValueError("width must be > 0")
         self.__width = width
-
-    """Get the height of the rectangle."""
 
     @property
     def height(self):
+        """Get the height of the rectangle."""
         return self.__height
-
-    """Set the height of the rectangle."""
 
     @height.setter
     def height(self, height):
+        """Set the height of the rectangle."""
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        elif height <= 0:
+            raise ValueError("height must be > 0")
         self.__height = height
-
-        """Get the x coordinate of the rectangle."""
 
     @property
     def x(self):
+        """Get the x coordinate of the rectangle."""
         return self.__x
-
-    """Set the x coordinate of the rectangle."""
 
     @x.setter
     def x(self, x):
+        """Set the x coordinate of the rectangle."""
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        elif x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
-
-    """Get the y coordinate of the rectangle."""
 
     @property
     def y(self):
+        """Get the y coordinate of the rectangle."""
         return self.__y
-
-    """Set the y coordinate of the rectangle."""
 
     @y.setter
     def y(self, y):
+        """Set the y coordinate of the rectangle."""
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        elif y < 0:
+            raise ValueError("y must be >= 0")
         self.__y = y
