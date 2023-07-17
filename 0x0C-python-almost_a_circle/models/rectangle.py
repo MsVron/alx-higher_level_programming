@@ -124,7 +124,7 @@ class Rectangle(Base):
             **kwargs: A dictionary of key-worded arguments.
         """
         attrs = ['id', 'width', 'height', 'x', 'y']
-    
+
         # First process args if they are given.
         if args:
             for i, arg in enumerate(args):
