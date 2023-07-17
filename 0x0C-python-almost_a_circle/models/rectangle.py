@@ -9,16 +9,28 @@ from models.base import Base
 class Rectangle(Base):
     """
     Rectangle class that inherits from Base.
-
+    
     Attributes:
-        width (int): width of the rectangle
-        height (int): height of the rectangle
+        width (int): width of the rectangle.
+        height (int): height of the rectangle.
         x (int, optional): x coordinate of the rectangle. Defaults to 0.
         y (int, optional): y coordinate of the rectangle. Defaults to 0.
         id (int, optional): id of the rectangle. If not provided, an id is
             automatically assigned using the logic from the Base class.
     """
+    
     def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        Initialize a new Rectangle instance.
+        
+        Args:
+            width (int): width of the rectangle.
+            height (int): height of the rectangle.
+            x (int, optional): x coordinate of the rectangle. Defaults to 0.
+            y (int, optional): y coordinate of the rectangle. Defaults to 0.
+            id (int, optional): id of the rectangle. If not provided, an id is
+                automatically assigned using the logic from the Base class.
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -80,3 +92,7 @@ class Rectangle(Base):
         elif y < 0:
             raise ValueError("y must be >= 0")
         self.__y = y
+    
+    def area(self):
+        """Calculate and return the area of the rectangle."""
+        return self.width * self.height
